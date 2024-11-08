@@ -91,8 +91,6 @@ description: |-
     Cloud Posse's upstream component
   - [cloudposse/terraform-aws-kms-key](https://github.com/cloudposse/terraform-aws-kms-key) - Cloud Posse's upstream
     module
-include:
-  - "docs/terraform.md"
 tags:
   - component/kms
   - layer/addons
