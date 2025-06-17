@@ -1,0 +1,7 @@
+components:
+  terraform:
+    aws-kms/disabled:
+      metadata:
+        component: target
+      vars:
+        enabled: false

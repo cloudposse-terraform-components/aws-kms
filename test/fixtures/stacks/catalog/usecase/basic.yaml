@@ -1,0 +1,10 @@
+components:
+  terraform:
+    aws-kms/basic:
+      metadata:
+        component: target
+      vars:
+        enabled: true
+        alias: "alias/test"
+        allowed_principal_arns:
+          - "arn:aws:iam::822777368227:user/SuperAdmin"
