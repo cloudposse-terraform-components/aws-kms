@@ -1,0 +1,9 @@
+components:
+  terraform:
+    aws-kms/basic:
+      metadata:
+        component: target
+      vars:
+        enabled: true
+        allowed_principal_arns:
+          - "arn:aws:iam::799847381734:role/cptest-test-gbl-sandbox-planner"
