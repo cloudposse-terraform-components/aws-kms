@@ -5,5 +5,3 @@ components:
         component: target
       vars:
         enabled: true
-        allowed_principal_arns:
-          - "arn:aws:iam::822777368227:user/SuperAdmin"
