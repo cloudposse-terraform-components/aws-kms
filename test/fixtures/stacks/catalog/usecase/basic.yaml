@@ -6,4 +6,4 @@ components:
       vars:
         enabled: true
         allowed_principal_arns:
-          - "arn:aws:iam::000000000000:user/ForBar"
+          - "arn:aws:iam::799847381734:role/cptest-test-gbl-sandbox-planner"
