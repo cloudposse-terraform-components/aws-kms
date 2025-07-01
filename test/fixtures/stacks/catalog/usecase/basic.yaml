@@ -5,3 +5,5 @@ components:
         component: target
       vars:
         enabled: true
+        allowed_principal_arns:
+          - "arn:aws:iam::000000000000:user/ForBar"
