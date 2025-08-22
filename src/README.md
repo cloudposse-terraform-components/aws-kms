@@ -8,7 +8,6 @@ tags:
 # Component: `kms`
 
 This component is responsible for provisioning a KMS Key.
-
 ## Usage
 
 **Stack Level**: Regional
@@ -26,7 +25,8 @@ components:
         enabled: true
 ```
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -96,13 +96,19 @@ components:
 | Name | Description |
 |------|-------------|
 | <a name="output_kms_key"></a> [kms\_key](#output\_kms\_key) | Output for KMS module |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- markdownlint-restore -->
+
+
 
 ## References
 
-- [cloudposse/terraform-aws-components](https://github.com/cloudposse/terraform-aws-components/tree/main/modules/kms) -
-  Cloud Posse's upstream component
-- [cloudposse/terraform-aws-kms-key](https://github.com/cloudposse/terraform-aws-kms-key) - Cloud Posse's upstream
-  module
+
+- [cloudposse-terraform-components](https://github.com/orgs/cloudposse-terraform-components/repositories) - Cloud Posse's upstream component
+
+- [cloudposse/terraform-aws-kms-key](https://github.com/cloudposse/terraform-aws-kms-key) - Cloud Posse's upstream module
+
+
+
 
 [<img src="https://cloudposse.com/logo-300x69.svg" height="32" align="right"/>](https://cpco.io/homepage?utm_source=github&utm_medium=readme&utm_campaign=cloudposse-terraform-components/aws-kms&utm_content=)
+
