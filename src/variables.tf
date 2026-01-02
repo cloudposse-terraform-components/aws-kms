@@ -87,11 +87,11 @@ variable "additional_statements" {
     principals = optional(list(object({
       type        = string
       identifiers = list(string)
-    })))
+    })), [])
     conditions = optional(list(object({
       test     = string
       variable = string
       values   = list(string)
-    })))
+    })), [])
   }))
 }
