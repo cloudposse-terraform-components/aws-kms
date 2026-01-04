@@ -75,3 +75,23 @@ variable "allowed_principal_arns" {
   description = "List of AWS principal ARNs allowed to assume the role."
   default     = []
 }
+
+variable "additional_statements" {
+  description = "Additional statements to add to the policy"
+  default     = []
+  type = list(object({
+    sid       = optional(string)
+    effect    = optional(string)
+    actions   = optional(list(string))
+    resources = optional(list(string))
+    principals = optional(list(object({
+      type        = string
+      identifiers = list(string)
+    })), [])
+    conditions = optional(list(object({
+      test     = string
+      variable = string
+      values   = list(string)
+    })), [])
+  }))
+}
