@@ -96,7 +96,7 @@ components:
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_allowed_role_map"></a> [allowed\_role\_map](#module\_allowed\_role\_map) | ../account-map/modules/roles-to-principals | n/a |
+| <a name="module_allowed_role_map"></a> [allowed\_role\_map](#module\_allowed\_role\_map) | github.com/cloudposse-terraform-components/aws-account-map//src/modules/roles-to-principals | v1.536.1 |
 | <a name="module_iam_roles"></a> [iam\_roles](#module\_iam\_roles) | ../account-map/modules/iam-roles | n/a |
 | <a name="module_kms_key"></a> [kms\_key](#module\_kms\_key) | cloudposse/kms-key/aws | 0.12.2 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
@@ -113,6 +113,8 @@ components:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_account_map"></a> [account\_map](#input\_account\_map) | INFO: Temporary variable required for account-map deprecation plan. Please do not change the value | <pre>object({<br/>    full_account_map              = map(string)<br/>    audit_account_account_name    = optional(string, "")<br/>    root_account_account_name     = optional(string, "")<br/>    identity_account_account_name = optional(string, "")<br/>    aws_partition                 = optional(string, "aws")<br/>    iam_role_arn_templates        = optional(map(string), {})<br/>  })</pre> | <pre>{<br/>  "audit_account_account_name": "",<br/>  "aws_partition": "aws",<br/>  "full_account_map": {},<br/>  "iam_role_arn_templates": {},<br/>  "identity_account_account_name": "",<br/>  "root_account_account_name": ""<br/>}</pre> | no |
+| <a name="input_account_map_enabled"></a> [account\_map\_enabled](#input\_account\_map\_enabled) | INFO: Temporary variable required for account-map deprecation plan. Please do not change the value | `bool` | `true` | no |
 | <a name="input_additional_statements"></a> [additional\_statements](#input\_additional\_statements) | Additional statements to add to the policy | <pre>list(object({<br/>    sid       = optional(string)<br/>    effect    = optional(string)<br/>    actions   = optional(list(string))<br/>    resources = optional(list(string))<br/>    principals = optional(list(object({<br/>      type        = string<br/>      identifiers = list(string)<br/>    })), [])<br/>    conditions = optional(list(object({<br/>      test     = string<br/>      variable = string<br/>      values   = list(string)<br/>    })), [])<br/>  }))</pre> | `[]` | no |
 | <a name="input_additional_tag_map"></a> [additional\_tag\_map](#input\_additional\_tag\_map) | Additional key-value pairs to add to each map in `tags_as_list_of_maps`. Not added to `tags` or `id`.<br/>This is for some rare cases where resources want additional configuration of tags<br/>and therefore take a list of maps with tag key, value, and additional configuration. | `map(string)` | `{}` | no |
 | <a name="input_alias"></a> [alias](#input\_alias) | The display name of the alias. The name must start with the word alias followed by a forward slash. If not specified, the alias name will be auto-generated. | `string` | `null` | no |
