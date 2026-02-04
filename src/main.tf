@@ -13,10 +13,17 @@ data "aws_caller_identity" "current" {}
 data "aws_partition" "current" {}
 
 module "allowed_role_map" {
-  source = "../account-map/modules/roles-to-principals"
+  source = "github.com/cloudposse-terraform-components/aws-account-map//src/modules/roles-to-principals?ref=v1.536.1"
 
   privileged = false
   role_map   = var.allowed_roles
+
+  tenant      = var.account_map_enabled ? module.iam_roles.global_tenant_name : null
+  environment = var.account_map_enabled ? module.iam_roles.global_environment_name : null
+  stage       = var.account_map_enabled ? module.iam_roles.global_stage_name : null
+
+  account_map_bypass   = !var.account_map_enabled
+  account_map_defaults = var.account_map
 
   context = module.this.context
 }
@@ -56,23 +63,27 @@ data "aws_iam_policy_document" "key_policy" {
     }
   }
 
-  statement {
-    sid    = "KeyUsage"
-    effect = "Allow"
+  # Only create the "KeyUsage" statement if there are any principals
+  dynamic "statement" {
+    for_each = length(local.principals) > 0 ? [1] : []
+    content {
+      sid    = "KeyUsage"
+      effect = "Allow"
 
-    actions = [
-      "kms:Encrypt",
-      "kms:Decrypt",
-      "kms:ReEncrypt*",
-      "kms:GenerateDataKey*",
-      "kms:DescribeKey",
-    ]
+      actions = [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:ReEncrypt*",
+        "kms:GenerateDataKey*",
+        "kms:DescribeKey",
+      ]
 
-    resources = ["*"]
+      resources = ["*"]
 
-    principals {
-      type        = "AWS"
-      identifiers = local.principals
+      principals {
+        type        = "AWS"
+        identifiers = local.principals
+      }
     }
   }
 
