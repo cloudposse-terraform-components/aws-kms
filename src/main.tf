@@ -13,7 +13,7 @@ data "aws_caller_identity" "current" {}
 data "aws_partition" "current" {}
 
 module "allowed_role_map" {
-  source = "github.com/cloudposse-terraform-components/aws-account-map//src/modules/roles-to-principals?ref=v1.536.1"
+  source = "github.com/cloudposse-terraform-components/aws-account-map//src/modules/roles-to-principals?ref=v1.537.1"
 
   privileged = false
   role_map   = var.allowed_roles
